@@ -1,0 +1,47 @@
+<% include header%>
+<% include module %>
+<% include search%>
+        <table class="table" style="color:white; margin-top: 80px;font-size: 25px;">
+            <caption>
+                <div >
+                </div>
+            </caption>
+            <thead>
+            <tr>
+                <th>NickName</th>
+                <th>MobileNumber</th>
+                <th>E-mail</th>
+                <th>RegistrationTime</th>
+                <th>Operation</th>
+            </tr>
+            </thead>
+            <tbody>
+           <% docs.forEach(function(doc){%>
+           <tr>
+               <td>
+                   <%= doc.username %>
+               </td>
+               <td>
+                   <%= doc.phone %>
+               </td>
+               <td>
+                   <%= doc.email %>
+               </td>
+               <td>
+                   <%= doc.time %>
+               </td>
+               <td>
+                   <a href="/update/<%= doc.username%>/<%= doc.email%>/<%= doc.phone%>">
+                       <button class="btn btn-info"  style="font-weight:bold !important;background-color:RGBA(34,255,34,0.45); ">EDIT</button>
+                   </a>
+                   <a href="/delete/<%= doc.username%>">
+                       <button class="btn btn-info"style="font-weight:bold !important;background-color:#8B475D;">DELE</button>
+                   </a>
+               </td>
+           </tr>
+           <%})%>
+            </tbody>
+        </table>
+<% include page%>
+<% include footer %>
+

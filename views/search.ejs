@@ -1,0 +1,28 @@
+<!-- 按钮触发模态框 -->
+<button class="btn pull-right btn-group-vertical" style="margin-right: 20px; font-size:18px" data-toggle="modal" data-target="#mysearch">SEARCH</button>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="mysearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: aliceblue !important; font-size: 18px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title" id="myModalLabel">Search for user information</h2>
+            </div>
+            <div class="modal-body">
+                <form action="/search" method="get">
+                    <div class="form-group">
+                        <label for="search" class="col-sm-3" style="font-size: 20px">NickName:</label>
+                        <input type="text" name="searchname" class="col-sm-7">
+                    </div>
+                    <br>
+                    <div class="form-group center" >
+                        <input type="submit" style="font-weight: bold;width: 100px" class="btn btn-success" value="SEARCH">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn  btn-block" style="font-weight: bold" data-dismiss="modal">SHUI DOWN</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

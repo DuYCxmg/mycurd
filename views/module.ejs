@@ -1,0 +1,26 @@
+<!-- 按钮触发模态框 -->
+<button class="btn btn-group-vertical  pull-right" style="margin-right: 50px; font-size:18px" data-toggle="modal" data-target="#myModal">
+    REGISTRATION
+</button>
+<!-- 模态框（Modal） -->
+<div class="modal fade"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content" style="background-color: aliceblue !important; font-size: 18px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h2 class="modal-title" id="myModalLabel">
+                    Join MyPractice Project
+                </h2>
+            </div>
+            <div class="modal-body">
+                <% include add%>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn  btn-block" data-dismiss="modal">SHUT DOWN
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>

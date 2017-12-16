@@ -1,0 +1,34 @@
+<% include header%>
+<div class="container pull-left updatetitle">
+    &nbsp;&nbsp;&nbsp;&nbsp;Modify personal information
+    <form class="form-horizontal center updateform" action="/change" method="post">
+        <div class="form-group">
+            <label for="username" class="col-sm-3">
+                NickName:
+            </label>
+            <input type="text" readonly id="username" name="username" class="col-sm-7" value="<%= doc.username%>" >
+        </div>
+        <div class="form-group">
+            <label for="time" class="col-sm-3">
+               <span class="red">*</span> RegTime:
+            </label>
+            <input type="text" id="time" name="time" readonly required class="col-sm-7" value="<%= doc.time%>">
+        </div>
+        <div class="form-group">
+            <label for="phone" class="col-sm-3">
+                 Mobile-Number:
+            </label>
+            <input type="text" class="col-sm-7"  name="phone" value="<%= doc.phone%>">
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-3">
+                E-Mail:
+            </label>
+            <input type="text" class="col-sm-7" name="email" value="<%= doc.email%>" >
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Commit changes" class="btn btn-info btn-lg">
+        </div>
+    </form>
+</div>
+<% include footer%>

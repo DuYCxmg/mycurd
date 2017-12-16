@@ -1,0 +1,13 @@
+<br>
+<div class="pull-right" style="position: fixed; width: 100%;height:50px; overflow:hidden;bottom:250px; right:500px;">
+    <% if(!isFirstPage){%>
+    <span class="page" style=" right: 0px;margin-bottom: 0px;position: absolute">
+        <a href="?page=<%= page -1%>">Front</a>
+    </span>
+    <%}%>
+    <% if(!isLastPage){%>
+    <span class="page" style="right: 0px;margin-bottom: 0px;position: absolute">
+        <a href="?page=<%= page+1%>">Next</a>
+    </span>
+    <%}%>
+</div>
