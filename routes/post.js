@@ -121,7 +121,7 @@ Post.change=function(name,time,phone,email,callback){
     })
 };
 //查询用户操作函数
-Post.search =function(name,callback){
+Post.search =function(name,page,callback){
     mongodb.open(function(err,db){
         if(err){
             return callback(err);
@@ -131,20 +131,30 @@ Post.search =function(name,callback){
                 mongodb.close();
                 return callback(err);
             }
-            var newRegex =new RegExp(name,"i");
-            collection.find({
-                username:newRegex
-            },{
-                username:1,
-                phone:1,
-                email:1,
-                time:1
-            }).sort({time:-1}).toArray(function(err,docs){
-                mongodb.close();
+            var query = {};
+            if (name) {
+                query.name = name;
+            }
+            collection.count(query,function(err,total){
                 if(err){
+                    mongodb.close();
                     return callback(err);
                 }
-                return callback(null,docs);
+                var newRegex =new RegExp(name,"i");
+                collection.find({
+                    username:newRegex
+                },{
+                    username:1,
+                    phone:1,
+                    email:1,
+                    time:1
+                }).sort({time:-1}).toArray(function(err,docs){
+                    mongodb.close();
+                    if(err){
+                        return callback(err);
+                    }
+                    return callback(null,docs,total);
+                })
             })
         })
     })

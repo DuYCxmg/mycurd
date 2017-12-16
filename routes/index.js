@@ -125,7 +125,8 @@ module.exports =function(app){
  //查询
 
     app.get("/search",function(req,res){
-        Post.search(req.query.searchname,function(err,docs){
+        var  page = parseInt(req.query.page) || 1;
+        Post.search(req.query.searchname,page,function(err,docs,total){
             if(err){
                 res.flash("error",err);
                 return res.redirect("/");
@@ -134,6 +135,9 @@ module.exports =function(app){
             return res.render("index",{
                 title:"BootStrap",
                 docs:docs,
+                page:page,
+                isFirstPage:(page - 1 )*5 ==0,
+                isLastPage:(page - 1 )*5 +docs.length ==total,
                 success:req.flash("success").toString(),
                 error:req.flash("error").toString()
             })
